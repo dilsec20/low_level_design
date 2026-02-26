@@ -147,3 +147,19 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+## 4. Additional Theoretical Questions
+
+**Q3: When should you use the State pattern vs just using enums and switch statements?**
+> **Answer:** Use State pattern when state-dependent behavior is complex and spread across many methods. With enums, every method has a `switch(state)`, and adding a new state means modifying ALL methods. With State pattern, each state is a class with all its behavior in one place. Adding a new state is just adding a new class — Open/Closed Principle.
+
+**Q4: Explain Chain of Responsibility. How is it different from a simple if-else chain?**
+> **Answer:** CoR decouples the sender from the receivers into a linked chain. Each handler independently decides to process or pass the request. Unlike if-else: handlers can be added/removed/reordered at runtime, each handler is its own class (SRP), and the sender doesn't know which handler will process the request.
+
+**Q5: What is the Memento pattern and where is it commonly used?**
+> **Answer:** Memento captures an object's internal state as an opaque snapshot for later restoration. Common uses: Undo/Redo (text editors, graphic tools), transaction rollback (databases), game save systems. Key: only the Originator can read the Memento's contents, preserving encapsulation.
+
+**Q6: When would you choose Visitor over adding virtual methods to a class hierarchy?**
+> **Answer:** Use Visitor when the class hierarchy is **stable** (rarely adding new element types) but you frequently need **new operations**. Visitor is ideal for compilers (AST visitors), document processors (export, validate, analyze), and serializers. Avoid Visitor if element types change often, since adding an element requires updating all visitors.

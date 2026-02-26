@@ -140,3 +140,16 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+## 4. Additional Theoretical Questions
+
+**Q3: What is the Composite pattern and when would you use it?**
+> **Answer:** Composite lets you compose objects into tree structures and treat individual objects and groups uniformly. Use it when your data naturally forms a hierarchy (file systems, UI component trees, organization charts). Both leaves and containers implement the same interface, so client code doesn't need to distinguish between them.
+
+**Q4: Explain the Bridge pattern. How does it prevent class explosion?**
+> **Answer:** Bridge separates abstraction from implementation by using composition instead of inheritance. Without Bridge, M abstractions × N implementations = M×N classes. With Bridge, you only need M+N classes. Example: 3 shapes × 4 renderers = 12 classes without Bridge, but only 7 with Bridge.
+
+**Q5: When would you use a Flyweight pattern?**
+> **Answer:** When you have a huge number of similar objects consuming excessive memory. Flyweight separates **intrinsic state** (shared, stored in flyweight) from **extrinsic state** (unique, passed by caller). Common in game development (particles, tiles), text editors (character formatting), and caching systems.

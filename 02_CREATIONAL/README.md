@@ -123,3 +123,17 @@ public:
 // Usage:
 // Computer pc = ComputerBuilder().setRam(32).setSSD(1024).addGPU().build();
 ```
+
+---
+
+## 4. Coding Problem 3: Abstract Factory
+
+**Q3: When would you use Abstract Factory over Factory Method?**
+> **Answer:** Use Abstract Factory when you need to create **families of related objects** that must be used together (e.g., Windows Button + Windows Checkbox). Factory Method creates a single product; Abstract Factory creates a whole product family. If mixing products from different families would cause bugs, Abstract Factory enforces consistency.
+
+**Q4: What is the Prototype pattern and when is cloning better than construction?**
+> **Answer:** The Prototype pattern creates new objects by cloning an existing "prototype" object. It is preferred when:
+> - Object construction is **expensive** (e.g., involves DB queries, network calls, heavy computation)
+> - You don't know the **concrete type** at compile time (you only have a base-class pointer)
+> - You want **pre-configured templates** that you can stamp out copies from
+> In C++, each class implements a `clone()` method that returns `unique_ptr<Base>`, enabling polymorphic deep copying.
